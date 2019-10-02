@@ -1,4 +1,4 @@
-# Palindrome string
+# K-Complementary Pairs
 
 Program that checks if a given an array of integers and the K value to check the pairs the number
 of pairs found in the array.
