@@ -1,5 +1,6 @@
 package com.myolnir;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class KComplementaryPairs {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter number of elements you want in array: ");
         int elements = s.nextInt();
-        int arrayOfElements[] = new int[elements];
+        int[] arrayOfElements = new int[elements];
         System.out.println("Enter the elements one by one:");
         for(int i = 0; i < elements; i++)
         {
@@ -25,23 +26,16 @@ public class KComplementaryPairs {
         }
         System.out.print("Enter the K value you want to check: ");
         int k = s.nextInt();
-        complementaryPairs(arrayOfElements, k);
+        int count = complementaryPairs(arrayOfElements, k);
+        System.out.println(count);
     }
 
 
-    private static void complementaryPairs(int inputArray[], int k) {
-        Map<Integer, Integer> pairs = new HashMap<>();
-        int length = inputArray.length;
-        int count;
-        for(int i=0;i<length;i++){
-            for(int j=i+1;j<length;j++){
-                if(inputArray[i]+inputArray[j] == k ){
-                    if(!(pairs.containsKey(inputArray[j]) && pairs.containsValue(inputArray[i])))
-                        pairs.put(inputArray[i], inputArray[j]);
-                }
-            }
+    static int complementaryPairs(int[] inputArray, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int value : inputArray) {
+            map.merge(k - value, 1, Integer::sum);
         }
-        count = pairs.size();
-        System.out.println("Pairs are "+ pairs +"  count  = "+ count);
+        return Arrays.stream(inputArray).map(element -> map.getOrDefault(element, 0)).sum();
     }
 }

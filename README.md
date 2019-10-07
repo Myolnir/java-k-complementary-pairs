@@ -13,16 +13,11 @@ We have two for loops so the complexity of the solution is a O(n^2)
 
 ## Installation
 
-The class is situated on the package com.myolnir so to compile you execute
+1. Download/Clone this repository.
+2. Import the downloaded Java Project into some IDE (e.g., IntelliJ, Eclipse, etc.)
+3. Run the [KComplementaryPairs.java](src/com/myolnir/KComplementaryPairs.java) file for Palindrome Logic.
+4. Run the [KComplementaryPairsTest.java](test/com/myolnir/KComplementaryPairsTest.java) file for JUnit Test Cases.
 
-`javac -d <where do you want to put the class files>/KCoplementaryPairs.java`
-
-
-After a couple of seconds you will have a KComplementaryPairs.class in the route you put on the above command.
-
-To execute this class you should run:
-
-`java com.myolnir.KComplementaryPairs`
 
 The program should run and ask you for a string, after you enter the script the program returns if
 the given string is a palindrome or not.
