@@ -1,9 +1,6 @@
 package com.myolnir;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class KComplementaryPairs {
 
@@ -32,10 +29,12 @@ public class KComplementaryPairs {
 
 
     static int complementaryPairs(int[] inputArray, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int value : inputArray) {
-            map.merge(k - value, 1, Integer::sum);
+        Set<Integer> numbers = new HashSet<>();
+        for (int n : inputArray) {
+            numbers.add(n);
         }
-        return Arrays.stream(inputArray).map(element -> map.getOrDefault(element, 0)).sum();
+        return Math.toIntExact(numbers.stream()
+                .filter(i -> numbers.contains(i - k))
+                .count());
     }
 }

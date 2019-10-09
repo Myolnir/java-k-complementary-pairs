@@ -5,11 +5,11 @@ of pairs found in the array.
 
 Given Array A, pair (i, j) is K- complementary if K = A[i] + A[j];
 
-The given solution iterates through the array twice, one from the first element and
-the other from the second element and checks if the sum of these elements are equal
-to the given "k" number, if yes, we put this pair into a map to return the result.
+The given solution iterates through the input array and add it to a HashSet after that we check if the created set
+contains the difference between the current element and the given one (*k*)
 
-We have two for loops so the complexity of the solution is a O(n^2)
+We have one loop for creating the Set so O(n) and another to check it O(n), contanis method for set is O(1) so the
+final complexity is O(n)
 
 ## Installation
 
